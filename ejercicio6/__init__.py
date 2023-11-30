@@ -13,10 +13,18 @@ diccionario = {
 }
 
 def romanoADecimal(numero_romano):
-    sum = 0
-    for num_romano in numero_romano:
-        sum += diccionario.get(num_romano)
-    return sum
+    decimal = 0
+    prev_valor = 0
+
+    for numeral in reversed(numero_romano):
+        valor = valores_romanos[numeral]
+        if valor < prev_valor:
+            decimal -= valor
+        else:
+            decimal += valor
+        prev_valor = valor
+
+    return decimal
 
 
 numero_romano_a_convertir = "XVI"
