@@ -17,7 +17,7 @@ def romanoADecimal(numero_romano):
     prev_valor = 0
 
     for numeral in reversed(numero_romano):
-        valor = valores_romanos[numeral]
+        valor = diccionario.get(numeral)
         if valor < prev_valor:
             decimal -= valor
         else:
